@@ -15,10 +15,13 @@ STEP 1:
  - connect to `ssh pi@raspberrypi` using the password `raspberry` - don't forget to change the default password of your device.
  
 STEP 2:
- - `sudo apt install -y nginx php-fpm php-sqlite3 isc-dhcp-server bind9 git`
+ - `sudo ip link set eth0 up`
+ - Check if `eth0` is up and has valid ip address with `ip a`
+ - `sudo apt install iptables`
+ - `sudo apt install -y nginx php-fpm php-sqlite3 isc-dhcp-server bind9 git hostapd`
  - `visudo` then add `www-data ALL=NOPASSWD: /usr/sbin/iptables`
  - `sudo usermod -aG gpio www-data`
- - `git clone https://github.com/foswvs/foswvs.git /home/pi/foswvs`
+ - `git clone https://github.com/hillsea2128/foswvs.git /home/pi/foswvs`
  - `rm /home/pi/foswvs/conf/password.sha256`
  - `sudo chown -R www-data:www-data /home/pi/foswvs`
  - `sudo cp /home/pi/foswvs/foswvs.service /lib/systemd/system/foswvs.service`

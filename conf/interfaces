@@ -1,8 +1,17 @@
-# file: /etc/network/interfaces auto lo
+# Loopback interface
+auto lo
+iface lo inet loopback
+
+# Ethernet interface (eth0) - Static IP configuration
 auto eth0
-allow-hotplug eth1
-
-iface eth1 inet dhcp
-
 iface eth0 inet static
-  address 10.0.0.1/20
+  address 192.168.1.68
+  netmask 255.255.255.0
+  gateway 192.168.1.1
+  dns-nameservers 8.8.8.8 8.8.4.4
+
+# WiFi Hotspot interface (wlan0)
+auto wlan0
+iface wlan0 inet static
+  address 10.0.0.1
+  netmask 255.255.240.0
