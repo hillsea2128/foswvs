@@ -9,7 +9,7 @@ ETH0_DNS="8.8.8.8 8.8.4.4"
 WLAN0_IP="10.0.0.1/24"
 
 echo "Updating system and installing required packages..."
-sudo apt update && sudo apt install -y hostapd isc-dhcp-server nginx network-manager
+sudo apt update && sudo apt install -y hostapd isc-dhcp-server nginx php-fpm php-sqlite3 network-manager
 
 echo "Configuring eth0 with NetworkManager..."
 nmcli connection modify "Wired connection 1" ipv4.addresses "$ETH0_IP" \
@@ -46,6 +46,8 @@ sudo systemctl restart nginx
 
 echo "Setting file permissions..."
 sudo chown -R www-data:www-data $APPDIR
+sudo chmod -R 755 /home/pi/foswvs
+sudo chmod o+x /home /home/pi
 
 sudo chmod +x $APPDIR/api/client
 
