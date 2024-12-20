@@ -17,7 +17,9 @@ STEP 1:
 STEP 2:
  - `sudo raspi-config` , `Localisation Options`, Set WLAN Country
  - `git clone https://github.com/hillsea2128/foswvs.git /home/pi/foswvs`
- - `chmod +x /home/pi/install.sh`
- - `/home/pi/./install.sh`
+ - `apt -y install screen`
+ - `screen`
+ - `chmod +x /home/pi/foswvs/install.sh`
+ - `/home/pi/foswvs/./install.sh`
  - `sudo reboot`
 
