@@ -15,6 +15,7 @@ STEP 1:
  - connect to `ssh pi@raspberrypi` using the password `raspberry` - don't forget to change the default password of your device.
  
 STEP 2:
+ - `sudo raspi-config` , `Localisation Options`, Set WLAN Country
  - `sudo ip link set eth0 up`
  - Check if `eth0` is up and has valid ip address with `ip a`
  - `sudo apt install iptables`
@@ -26,5 +27,9 @@ STEP 2:
  - `sudo chown -R www-data:www-data /home/pi/foswvs`
  - `sudo cp /home/pi/foswvs/foswvs.service /lib/systemd/system/foswvs.service`
  - `sudo systemctl enable foswvs.service`
+ - `sudo systemctl unmask hostapd`
+ - `cp /home/pi/foswvs/conf/interfaces /etc/network/interfaces`
+ - `sudo systemctl enable hostapd`
+ 
  - `sudo reboot`
 
