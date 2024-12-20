@@ -5,7 +5,7 @@
 
  This software may run on any distros, but i recommend using rpi device and flashing `Raspberry Pi OS Lite`.
 
- Note: Use php version 7 above.
+ Note: Use php version 8 above.
 
 # installation instructions
 STEP 1:
@@ -16,20 +16,8 @@ STEP 1:
  
 STEP 2:
  - `sudo raspi-config` , `Localisation Options`, Set WLAN Country
- - `sudo ip link set eth0 up`
- - Check if `eth0` is up and has valid ip address with `ip a`
- - `sudo apt install iptables`
- - `sudo apt install -y nginx php-fpm php-sqlite3 isc-dhcp-server bind9 git hostapd`
- - `visudo` then add `www-data ALL=NOPASSWD: /usr/sbin/iptables`
- - `sudo usermod -aG gpio www-data`
  - `git clone https://github.com/hillsea2128/foswvs.git /home/pi/foswvs`
- - `rm /home/pi/foswvs/conf/password.sha256`
- - `sudo chown -R www-data:www-data /home/pi/foswvs`
- - `sudo cp /home/pi/foswvs/foswvs.service /lib/systemd/system/foswvs.service`
- - `sudo systemctl enable foswvs.service`
- - `sudo systemctl unmask hostapd`
- - `cp /home/pi/foswvs/conf/interfaces /etc/network/interfaces`
- - `sudo systemctl enable hostapd`
- 
+ - `chmod +x /home/pi/install.sh`
+ - `/home/pi/./install.sh`
  - `sudo reboot`
 
